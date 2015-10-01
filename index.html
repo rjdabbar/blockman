@@ -7,7 +7,7 @@
   </head>
   <body>
     <canvas id="game-canvas"></canvas>
-  </body>
+
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -18,5 +18,10 @@
   <script src="player.js"></script>
   <script src="game.js"></script>
   <script src="gameView.js"></script>
-
+  <script>
+    var canvasEl = document.getElementById("game-canvas");
+    var gameView = new window.Jumpman.GameView(canvasEl);
+    // gameView.start()
+  </script>
+  </body>
 </html>
