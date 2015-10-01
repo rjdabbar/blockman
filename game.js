@@ -1,7 +1,7 @@
 (function () {
   window.Blockman = window.Blockman || {};
 
-  var Game = window.Blockman.Game = function () {
+  var Game = Blockman.Game = function () {
     this.DIM_X = $(window).width();
     this.DIM_Y = $(window).height();
 
@@ -12,6 +12,7 @@
     this.allObjects = this.getAllObjects();
     this.lives;
     this.score;
+    this.gravity = -10;
 
   };
 
@@ -46,4 +47,10 @@
   Game.prototype.checkCollisions = function () {
 
   };
+
+  Game.prototype.applyGravity = function () {
+    this.allObjects.forEach( function (obj) {
+
+    })
+  }
 }())

@@ -1,7 +1,7 @@
 (function () {
   window.Blockman = window.Blockman || {};
 
-  var GameView = window.Blockman.GameView = function (canvas) {
+  var GameView = Blockman.GameView = function (canvas) {
       this.keys = {w: false, a: false, d: false, space: false};
       this.game;
       this.ctx = canvas.getContext("2d");
