@@ -1,7 +1,7 @@
 (function () {
-  window.Jumpman = window.Jumpman || {};
+  window.Blockman = window.Blockman || {};
 
-  var Game = window.Jumpman.Game = function () {
+  var Game = window.Blockman.Game = function () {
     this.DIM_X = $(window).width();
     this.DIM_Y = $(window).height();
 
@@ -46,4 +46,4 @@
   Game.prototype.checkCollisions = function () {
 
   };
-})
+}())
