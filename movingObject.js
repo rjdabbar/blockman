@@ -2,8 +2,9 @@
   window.Blockman = window.Blockman || {};
 
   var MovingObject = Blockman.MovingObject = function (argsObj) {
-    this.topR = argsObj.topR;
     this.botL = argsObj.botL;
+    this.botR = argsObj.botR;
+    this.height = argsObj.height;
     this.dir = argsObj.dir;
     this.game = argsObj.game;
     this.color = argsObj.color;
@@ -13,27 +14,43 @@
 
   MovingObject.prototype.draw = function (ctx) {
     ctx.fillStyle = this.color;
-
-    ctx.moveTo(this.topR[0], this.topR[1]);
-    ctx.lineTo(this.topR[0], this.botL[1]);
-    ctx.lineTo(this.botL[0], this.botL[1]);
-    ctx.lineTo(this.botL[0], this.topR[1]);
+    ctx.moveTo(this.botL[0], this.botL[1]);
+    ctx.lineTo(this.botL[0], this.botL[1] + this.height);
+    ctx.lineTo(this.botR[0], this.botR[1] + this.height);
+    ctx.lineTo(this.botR[0], this.botR[1]);
     ctx.fill();
   };
 
-  MovingObject.prototype.move = function () {
-    var oldTopR, oldBotL, newTopR, newBotL;
-    oldTopR = this.topR;
+  MovingObject.prototype.move = function (distance) {
+    var oldBotR, oldBotL, newBotR, newBotL
+    oldBotR = this.botR;
     oldBotL = this.botL;
-
-    newTopR = [oldTopR[0] + this.speed, oldTopR[1] + this.vert];
-    newBotL = [oldBotL[0] + this.speed, oldBotL[1] + this.vert];
-
-    this.topR = newTopR;
+    newBotR = [oldBotR[0] + distance, oldBotR[1] + this.vert];
+    newBotL = [oldBotL[0] + distance, oldBotL[1] + this.vert];
+    this.botR = newBotR;
     this.botL = newBotL;
+    this.keepUpAboveGround();
   };
 
   MovingObject.prototype.applyGravity = function () {
-    this.vert += this.game.gravity;
+    if (this.botL[1] > this.game.groundLevel || this.botL[1] < this.game.groundLevel) {
+      this.vert -= this.game.gravity
+    }
   };
+
+  MovingObject.prototype.applyFriction = function () {
+    if (this instanceof Blockman.Player) {
+      if (this.speed > 0) {
+        this.speed -= 0.5;
+      };
+    };
+  };
+
+  MovingObject.prototype.keepUpAboveGround = function () {
+    if (this.botL[1] > this.game.groundLevel || this.botR[1] > this.game.groundLevel) {
+      this.botL[1] = this.game.groundLevel;
+      this.botR[1] = this.game.groundLevel;
+    }
+  }
+
 }())

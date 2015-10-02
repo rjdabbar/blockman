@@ -14,15 +14,29 @@
     Math.pow((object1.pos[1] - object2.pos[1]), 2));
   };
 
-  Util.generatePlayer = function () {
+  Util.generatePlayer = function (game) {
     return {
-      "topR": [60, 200],
-      "botL": [10, 300],
+      "botL": [10, game.groundLevel],
+      "botR": [60, game.groundLevel],
+      "height": 100,
       "color": "red",
-      "dir": "left",
-      "game": this,
+      "dir": "right",
+      "game": game,
       "speed": 0,
       "vert": 0
     };
-  }
+  };
+
+  Util.generateGoon = function (game) {
+    return {
+      "botL": [10, game.groundLevel],
+      "botR": [60, game.groundLevel],
+      "color": "brown",
+      "dir": "left",
+      "game": game,
+      "speed": 0,
+      "vert": 0
+    };
+  };
+
 }())

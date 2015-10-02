@@ -5,15 +5,15 @@
     this.DIM_X = $(window).width();
     this.DIM_Y = $(window).height();
 
-
+    this.groundLevel = 2*(this.DIM_Y/3)
     this.enemies= [];
-    this.player = new Blockman.Player(Blockman.Util.generatePlayer())
+    this.player = new Blockman.Player(Blockman.Util.generatePlayer(this));
     this.blocks = [];
     this.allObjects = this.getAllObjects();
     this.lives;
     this.score;
     this.gravity = -10;
-
+    console.log(this.groundLevel);
   };
 
   Game.prototype.getAllObjects = function () {
@@ -32,12 +32,13 @@
 
   Game.prototype.moveObjects = function () {
     this.getAllObjects.forEach = (function (obj) {
-      obj.move();
+      obj.applyGravity();
+      obj.keepUpAboveGround();
     })
   };
 
   Game.prototype.step = function () {
-
+    this.applyGravity();
   };
 
   Game.prototype.remove = function () {
@@ -50,7 +51,9 @@
 
   Game.prototype.applyGravity = function () {
     this.allObjects.forEach( function (obj) {
-
+      if (obj instanceof Blockman.MovingObject) {
+        obj.applyGravity();
+      }
     })
   }
 }())
