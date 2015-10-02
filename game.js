@@ -6,9 +6,9 @@
     this.DIM_Y = $(window).height();
 
 
-    this.enemies;
-    this.player;
-    this.blocks;
+    this.enemies= [];
+    this.player = new Blockman.Player(Blockman.Util.generatePlayer())
+    this.blocks = [];
     this.allObjects = this.getAllObjects();
     this.lives;
     this.score;
@@ -17,7 +17,7 @@
   };
 
   Game.prototype.getAllObjects = function () {
-    var allObjects;
+    var allObjects = [this.player].concat(this.enemies).concat(this.blocks)
     return allObjects;
   };
 
@@ -25,7 +25,7 @@
     ctx.canvas.width = this.DIM_X;
     ctx.canvas.height = this.DIM_Y;
     ctx.clearRect(0, 0, this.DIM_X, this.DIM_Y);
-    this.getAllObjects.forEach (function (obj) {
+    this.getAllObjects().forEach (function (obj) {
       obj.draw(ctx);
     });
   };

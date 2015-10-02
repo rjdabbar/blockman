@@ -16,7 +16,7 @@
 
     ctx.moveTo(this.topR[0], this.topR[1]);
     ctx.lineTo(this.topR[0], this.botL[1]);
-    ctx.lineTo(this.botL[0], this.botL[0]);
+    ctx.lineTo(this.botL[0], this.botL[1]);
     ctx.lineTo(this.botL[0], this.topR[1]);
     ctx.fill();
   };

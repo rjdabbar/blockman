@@ -3,9 +3,15 @@
 
   var GameView = Blockman.GameView = function (canvas) {
       this.keys = {w: false, a: false, d: false, space: false};
-      this.game;
+      this.game = new Blockman.Game();
       this.ctx = canvas.getContext("2d");
       this.bindKeyEvents();
+  };
+
+  GameView.prototype.start = function () {
+    setInterval(function () {
+      this.game.draw(this.ctx)
+    }.bind(this), 20)
   };
 
   GameView.prototype.bindKeyEvents = function () {

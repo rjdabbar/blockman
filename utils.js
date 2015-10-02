@@ -13,4 +13,16 @@
     return Math.sqrt(Math.pow((object1.pos[0] - object2.pos[0]), 2) +
     Math.pow((object1.pos[1] - object2.pos[1]), 2));
   };
+
+  Util.generatePlayer = function () {
+    return {
+      "topR": [60, 200],
+      "botL": [10, 300],
+      "color": "red",
+      "dir": "left",
+      "game": this,
+      "speed": 0,
+      "vert": 0
+    };
+  }
 }())
