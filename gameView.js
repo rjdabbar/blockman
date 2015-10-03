@@ -92,6 +92,8 @@
     if (this.keys.space) {
       this.game.player.jump();
     }
+
+    this.game.player.idle();
   };
 
 

@@ -32,10 +32,13 @@
 
   Player.prototype.run = function () {
     if (this.dir === "right") {
-      this.move(20)
+      this.move(15)
     } else {
-      this.move(-20);
+      this.move(-15);
     }
   };
 
+  Player.prototype.idle = function () {
+    this.move(0);
+  };
 }())
