@@ -13,13 +13,18 @@
       "vert": argsObj.vert,
     });
 
+    this.baseJump = this.botR[1];
+
   };
 
   window.Blockman.Util.inherits(Player, Blockman.MovingObject);
 
   Player.prototype.jump = function () {
-    this.vert = -50;
-    this.move(0)
+    // RESET THE BASE JUMP PROP WHEN YOU LAND ON A BLOCK OBJECT, TBI
+    if (this.baseJump < this.botL[1] + 200) {
+      this.vert = -50;
+      this.move(0)
+    }
   };
 
   Player.prototype.walk = function () {
@@ -41,4 +46,7 @@
   Player.prototype.idle = function () {
     this.move(0);
   };
+
+
+
 }())
