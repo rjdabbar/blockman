@@ -64,7 +64,7 @@
 
   Generator.generateGround = function (game) {
     var ground = [];
-
+    
   }
 
   Generator.generateGap = function () {
