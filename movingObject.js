@@ -21,15 +21,16 @@
     ctx.fill();
   };
 
-  MovingObject.prototype.move = function (distance) {
+  MovingObject.prototype.move = function () {
     var oldBotR, oldBotL, newBotR, newBotL
     oldBotR = this.botR;
     oldBotL = this.botL;
-    newBotR = [oldBotR[0] + distance, oldBotR[1] + this.vert];
-    newBotL = [oldBotL[0] + distance, oldBotL[1] + this.vert];
+    newBotR = [oldBotR[0] + this.speed, oldBotR[1] + this.vert];
+    newBotL = [oldBotL[0] + this.speed, oldBotL[1] + this.vert];
     this.botR = newBotR;
     this.botL = newBotL;
     this.keepUpAboveGround();
+    this.capSpeed();
   };
 
   MovingObject.prototype.applyGravity = function () {
@@ -42,6 +43,8 @@
     if (this instanceof Blockman.Player) {
       if (this.speed > 0) {
         this.speed -= 0.5;
+      } else if (this.speed < 0) {
+        this.speed += 0.5;
       };
     };
   };
@@ -51,6 +54,14 @@
       this.botL[1] = this.game.groundLevel;
       this.botR[1] = this.game.groundLevel;
     }
-  }
+  };
+
+  MovingObject.prototype.capSpeed = function () {
+    if (this.speed > 20) {
+      this.speed = 20;
+    } else if (this.speed < -20) {
+      this.speed = -20;
+    }
+  };
 
 }())

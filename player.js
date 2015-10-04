@@ -30,23 +30,28 @@
 
   Player.prototype.walk = function () {
     if (this.dir === "right") {
-      this.move(15)
+      this.speed += 1;
     } else {
-      this.move(-15);
+      this.speed -= 1;
     }
+    this.move();
   };
 
   Player.prototype.run = function () {
     if (this.dir === "right") {
-      this.move(25)
+      this.speed += 2;
     } else {
-      this.move(-25);
+      this.speed -= 2;
     }
+      this.move();
   };
 
   Player.prototype.idle = function () {
+    this.applyFriction();
     this.move(0);
   };
+
+
 
 
 
