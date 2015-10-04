@@ -50,6 +50,7 @@
       "hasItems": false,
       "coins": 0
     };
+  };
 
   Util.generateUnbreakableBlock = function (game) {
     return {
