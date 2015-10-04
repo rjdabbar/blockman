@@ -39,4 +39,29 @@
     };
   };
 
+  Util.generateBreakableBlock = function (game) {
+    return {
+      "width": 75,
+      "height": 75,
+      "pos": [0, game.groundLevel],
+      "game": game,
+      "color": "black",
+      "breakable": true,
+      "hasItems": false,
+      "coins": 0
+    };
+
+  Util.generateUnbreakableBlock = function (game) {
+    return {
+      "width": 75,
+      "height": 75,
+      "pos": [0, game.groundLevel],
+      "game": game,
+      "color": "black",
+      "breakable": false,
+      "hasItems": false,
+      "coins": 0
+    };
+  };
+
 }())
