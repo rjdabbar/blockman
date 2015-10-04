@@ -16,7 +16,7 @@
       "botL": [10, game.groundLevel],
       "botR": [60, game.groundLevel],
       "height": 100,
-      "color": "red",
+      "color": "orange",
       "dir": "right",
       "game": game,
       "speed": 0,
@@ -64,7 +64,7 @@
 
   Generator.generateGround = function (game) {
     var ground = [];
-    
+
   }
 
   Generator.generateGap = function () {

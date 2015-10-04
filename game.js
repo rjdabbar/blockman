@@ -14,7 +14,6 @@
     this.lives;
     this.score;
     this.gravity = -10;
-    console.log(this.groundLevel);
   };
 
   Game.prototype.getAllObjects = function () {

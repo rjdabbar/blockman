@@ -42,9 +42,9 @@
   MovingObject.prototype.applyFriction = function () {
     if (this instanceof Blockman.Player) {
       if (this.speed > 0) {
-        this.speed -= 0.5;
+        this.speed -= 0.6;
       } else if (this.speed < 0) {
-        this.speed += 0.5;
+        this.speed += 0.6;
       };
     };
   };
