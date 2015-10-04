@@ -14,55 +14,5 @@
     Math.pow((object1.pos[1] - object2.pos[1]), 2));
   };
 
-  Util.generatePlayer = function (game) {
-    return {
-      "botL": [10, game.groundLevel],
-      "botR": [60, game.groundLevel],
-      "height": 100,
-      "color": "red",
-      "dir": "right",
-      "game": game,
-      "speed": 0,
-      "vert": 0
-    };
-  };
-
-  Util.generateGoon = function (game) {
-    return {
-      "botL": [10, game.groundLevel],
-      "botR": [60, game.groundLevel],
-      "color": "brown",
-      "dir": "left",
-      "game": game,
-      "speed": 0,
-      "vert": 0
-    };
-  };
-
-  Util.generateBreakableBlock = function (game) {
-    return {
-      "width": 75,
-      "height": 75,
-      "pos": [0, game.groundLevel],
-      "game": game,
-      "color": "black",
-      "breakable": true,
-      "hasItems": false,
-      "coins": 0
-    };
-  };
-
-  Util.generateUnbreakableBlock = function (game) {
-    return {
-      "width": 75,
-      "height": 75,
-      "pos": [0, game.groundLevel],
-      "game": game,
-      "color": "black",
-      "breakable": false,
-      "hasItems": false,
-      "coins": 0
-    };
-  };
 
 }())

@@ -8,6 +8,7 @@
     this.groundLevel = 2*(this.DIM_Y/3)
     this.enemies= [];
     this.player = new Blockman.Player(Blockman.Util.generatePlayer(this));
+    this.world = new Blockman.World(Blockman.Util.generateWorld(this));
     this.blocks = [];
     this.allObjects = this.getAllObjects();
     this.lives;
