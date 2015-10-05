@@ -13,7 +13,7 @@
     this.allObjects = this.getAllObjects();
     this.lives;
     this.score;
-    this.gravity = -10;
+    this.gravity = -10; 
   };
 
   Game.prototype.getAllObjects = function () {

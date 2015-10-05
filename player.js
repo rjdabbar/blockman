@@ -24,7 +24,7 @@
     if (this.baseJump < this.botL[1] + 150) {
       console.log(this.botL);
       this.vert = -50;
-      this.move(0)
+      this.move()
     }
   };
 
@@ -48,7 +48,7 @@
 
   Player.prototype.idle = function () {
     this.applyFriction();
-    this.move(0);
+    this.move();
   };
 
 

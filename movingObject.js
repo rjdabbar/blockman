@@ -47,6 +47,8 @@
         this.speed += 0.6;
       };
     };
+    this.zeroSpeed();
+
   };
 
   MovingObject.prototype.keepUpAboveGround = function () {
@@ -63,5 +65,11 @@
       this.speed = -20;
     }
   };
+
+  MovingObject.prototype.zeroSpeed = function () {
+    if (this.speed < 0.5 && this.speed > -0.5) {
+      this.speed = 0;
+    }
+  }
 
 }())
