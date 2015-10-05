@@ -4,6 +4,7 @@
   var GameView = Blockman.GameView = function (canvas) {
       this.keys = {shift: false, a: false, d: false, space: false};
       this.game = new Blockman.Game();
+      this.canvas = canvas;
       this.ctx = canvas.getContext("2d");
       this.bindKeyEvents();
   };
@@ -94,6 +95,8 @@
     }
 
     this.game.player.idle();
+
+    this.game.viewport.act();
   };
 
 

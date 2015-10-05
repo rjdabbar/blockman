@@ -12,12 +12,12 @@
     this.vert = argsObj.vert;
   };
 
-  MovingObject.prototype.draw = function (ctx) {
+  MovingObject.prototype.draw = function (ctx, xView, yView) {
     ctx.fillStyle = this.color;
-    ctx.moveTo(this.botL[0], this.botL[1]);
-    ctx.lineTo(this.botL[0], this.botL[1] - this.height);
-    ctx.lineTo(this.botR[0], this.botR[1] - this.height);
-    ctx.lineTo(this.botR[0], this.botR[1]);
+    ctx.moveTo(this.botL[0] - xView, this.botL[1] - yView);
+    ctx.lineTo(this.botL[0] - xView, this.botL[1] - yView - this.height);
+    ctx.lineTo(this.botR[0] - xView, this.botR[1] - yView - this.height);
+    ctx.lineTo(this.botR[0] - xView, this.botR[1] - yView);
     ctx.fill();
   };
 

@@ -6,8 +6,8 @@
   Generator.generateViewport = function (game) {
     return {
       "game": game,
-      "width:": game.DIM_X,
-      "height": game.DIM_Y
+      "width": game.DIM_X,
+      "height": game.DIM_Y,
     }
   }
 

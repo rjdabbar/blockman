@@ -15,6 +15,8 @@
     this.lives;
     this.score;
     this.gravity = -10;
+
+    this.viewport.follow(this.DIM_X/2, this.DIM_Y/2);
   };
 
   Game.prototype.getAllObjects = function () {
