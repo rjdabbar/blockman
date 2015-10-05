@@ -9,15 +9,17 @@
     this.enemies= [];
     this.player = new Blockman.Player(Blockman.Generator.generatePlayer(this));
     this.world = new Blockman.World(Blockman.Generator.generateWorld(this));
-    this.blocks = [];
+    this.blocks = this.getBlocks();
     this.allObjects = this.getAllObjects();
     this.lives;
     this.score;
-    this.gravity = -10; 
+    this.gravity = -10;
   };
 
   Game.prototype.getAllObjects = function () {
-    var allObjects = [this.player].concat(this.enemies).concat(this.blocks)
+    // var allObjects = [this.player].concat(this.enemies).concat(this.blocks)
+    var allObjects = [this.player].concat([this.world]).concat(this.blocks)
+
     return allObjects;
   };
 
@@ -55,5 +57,10 @@
         obj.applyGravity();
       }
     })
-  }
+  };
+
+  Game.prototype.getBlocks = function () {
+    var block = new Blockman.Block(Blockman.Generator.generateBreakableBlock(this));
+    return [block];
+  };
 }())

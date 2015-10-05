@@ -55,7 +55,7 @@
       "height": 75,
       "pos": pos || [0, game.groundLevel],
       "game": game,
-      "color": "black",
+      "color": "blue",
       "breakable": false,
       "hasItems": false,
       "coins": 0
@@ -63,8 +63,12 @@
   };
 
   Generator.generateGround = function (game) {
-    var ground = [];
-
+    return {
+      "x1": -10000,
+      "y1": game.groundLevel,
+      "width": 20000,
+      "height": 300
+    };
   }
 
   Generator.generateGap = function () {

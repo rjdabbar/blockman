@@ -17,9 +17,15 @@
     var topL, topR, botR, botL;
     topL = this.pos;
     topR = [this.pos[0] + this.width, this.pos[1]];
-    botR = [this.pos[0] +this.width, this.pos[1] + this.height];
+    botR = [this.pos[0] +this.width, this.pos[1] - 200];
     botL = [this.pos[0], this.pos[1] + this.height];
     this.drawPoints = [topL, topR, botR, botL];
+  };
+
+
+  Block.prototype.draw = function (ctx) {
+    ctx.fillStyle = "#FF00FF";
+    ctx.fillRect(this.pos[0], this.pos[1], this.width, -this.height)
   };
 
 

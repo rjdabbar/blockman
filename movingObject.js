@@ -15,8 +15,8 @@
   MovingObject.prototype.draw = function (ctx) {
     ctx.fillStyle = this.color;
     ctx.moveTo(this.botL[0], this.botL[1]);
-    ctx.lineTo(this.botL[0], this.botL[1] + this.height);
-    ctx.lineTo(this.botR[0], this.botR[1] + this.height);
+    ctx.lineTo(this.botL[0], this.botL[1] - this.height);
+    ctx.lineTo(this.botR[0], this.botR[1] - this.height);
     ctx.lineTo(this.botR[0], this.botR[1]);
     ctx.fill();
   };
@@ -69,7 +69,7 @@
   MovingObject.prototype.zeroSpeed = function () {
     if (this.speed < 0.4 && this.speed > -0.4) {
       this.speed = 0;
-    }
-  }
+    };
+  };
 
 }())
