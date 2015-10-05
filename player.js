@@ -22,7 +22,6 @@
   Player.prototype.jump = function () {
     // RESET THE BASE JUMP PROP WHEN YOU LAND ON A BLOCK OBJECT, TBI
     if (this.baseJump < this.botL[1] + 150) {
-      console.log(this.botL);
       this.vert = -50;
       this.move()
     }

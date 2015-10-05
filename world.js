@@ -9,9 +9,7 @@
   };
 
   World.prototype.fillWorld = function () {
-    for (var i = 0; i < this.numBlocks; i++) {
 
-    }
   };
 
   World.prototype.draw = function () {
