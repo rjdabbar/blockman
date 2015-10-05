@@ -6,7 +6,10 @@
     this.ground = Blockman.Generator.generateGround(this.game);
     this.numBlocks = argsObj.numBlocks;
     this.numGaps = argsObj.numGaps;
+    Blockman.Rectangle.call(this, -10000, -10000, 20000, 20000);
   };
+
+  window.Blockman.Util.inherits(World, Blockman.Rectangle)
 
   World.prototype.fillWorld = function () {
 

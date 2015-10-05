@@ -3,6 +3,14 @@
 
   var Generator = Blockman.Generator = function () {};
 
+  Generator.generateViewport = function (game) {
+    return {
+      "game": game,
+      "width:": game.DIM_X,
+      "height": game.DIM_Y
+    }
+  }
+
   Generator.generateWorld = function (game) {
     return {
       "game": game,

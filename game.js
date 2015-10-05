@@ -9,6 +9,7 @@
     this.enemies= [];
     this.player = new Blockman.Player(Blockman.Generator.generatePlayer(this));
     this.world = new Blockman.World(Blockman.Generator.generateWorld(this));
+    this.viewport = new Blockman.Viewport(Blockman.Generator.generateViewport(this));
     this.blocks = this.getBlocks();
     this.allObjects = this.getAllObjects();
     this.lives;
