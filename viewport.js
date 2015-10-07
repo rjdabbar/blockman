@@ -30,16 +30,17 @@
 
   Viewport.prototype.act = function () {
     if (this.axis == AXIS.HORIZONTAL || this.axis == AXIS.BOTH) {
-      if(this.followed.x - this.xView  + this.xDeadZone > this.wView) {
-        this.xView = this.followed.x - (this.wView - this.xDeadZone);
+
+      if(this.followed.x - this.xView  + this.xDeadZone > this.width) {
+        this.xView = this.followed.x - (this.width - this.xDeadZone);
       } else if(this.followed.x  - this.xDeadZone < this.xView) {
         this.xView = this.followed.x  - this.xDeadZone;
       };
     };
 
     if(this.axis == AXIS.VERTICAL || this.axis == AXIS.BOTH) {
-      if(this.followed.y - this.yView + this.yDeadZone > this.hView) {
-        this.yView = this.followed.y - (this.hView - this.yDeadZone);
+      if(this.followed.y - this.yView + this.yDeadZone > this.height) {
+        this.yView = this.followed.y - (this.height - this.yDeadZone);
       } else if(this.followed.y - this.yDeadZone < this.yView) {
         this.yView = this.followed.y - this.yDeadZone;
       };
@@ -55,10 +56,10 @@
         this.yView = this.world.top;
       };
       if(this.viewport.right > this.world.right) {
-        this.xView = this.world.right - this.wView;
+        this.xView = this.world.right - this.width;
       };
       if(this.viewport.bottom > this.world.bottom) {
-        this.yView = this.world.bottom - this.hView;
+        this.yView = this.world.bottom - this.height;
       };
     };
   };

@@ -23,10 +23,12 @@
   };
 
 
-  Block.prototype.draw = function (ctx) {
+  Block.prototype.draw = function (ctx, xView, yView) {
     ctx.fillStyle = "#FF00FF";
-    ctx.fillRect(this.pos[0], this.pos[1], this.width, -this.height)
+    ctx.fillRect(this.pos[0] - xView, this.pos[1], this.width, -this.height)
   };
 
+  Block.prototype.updatePos = function () {
+  };
 
 }())

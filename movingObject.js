@@ -14,10 +14,10 @@
 
   MovingObject.prototype.draw = function (ctx, xView, yView) {
     ctx.fillStyle = this.color;
-    ctx.moveTo(this.botL[0] - xView, this.botL[1] - yView);
-    ctx.lineTo(this.botL[0] - xView, this.botL[1] - yView - this.height);
-    ctx.lineTo(this.botR[0] - xView, this.botR[1] - yView - this.height);
-    ctx.lineTo(this.botR[0] - xView, this.botR[1] - yView);
+    ctx.moveTo(this.botL[0] - xView, this.botL[1]);
+    ctx.lineTo(this.botL[0] - xView, this.botL[1] - this.height);
+    ctx.lineTo(this.botR[0] - xView, this.botR[1] - this.height);
+    ctx.lineTo(this.botR[0] - xView, this.botR[1]);
     ctx.fill();
   };
 
@@ -31,6 +31,7 @@
     this.botL = newBotL;
     this.keepUpAboveGround();
     this.capSpeed();
+    if (this instanceof Blockman.Player) { this.updatePos(); }
   };
 
   MovingObject.prototype.applyGravity = function () {

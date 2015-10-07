@@ -13,6 +13,8 @@
       "vert": argsObj.vert,
     });
 
+    this.updatePos();
+
     this.baseJump = this.botR[1];
 
   };
@@ -50,7 +52,11 @@
     this.move();
   };
 
+  Player.prototype.updatePos = function () {
+    this.x = this.botL[0];
+    this.y = this.botL[1] + this.height;
 
+  }
 
 
 

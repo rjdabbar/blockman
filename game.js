@@ -31,8 +31,8 @@
     ctx.canvas.height = this.DIM_Y;
     ctx.clearRect(0, 0, this.DIM_X, this.DIM_Y);
     this.getAllObjects().forEach (function (obj) {
-      obj.draw(ctx);
-    });
+      obj.draw(ctx, this.viewport.xView, this.viewport.yView );
+    }.bind(this));
   };
 
   Game.prototype.moveObjects = function () {
